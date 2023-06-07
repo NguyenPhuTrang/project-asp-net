@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindJobOnWeb", "FindJobOnWeb\FindJobOnWeb.csproj", "{A19B47F7-2FEF-42D4-A51D-4EEE3156085A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindJobOnWeb.Model", "FindJobOnWeb.Model\FindJobOnWeb.Model.csproj", "{3AC1A409-67A4-477A-A01E-BE5075016E89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindJobOnWeb.Repository", "FindJobOnWeb.Repository\FindJobOnWeb.Repository.csproj", "{14CBB211-FFF4-469E-8038-90E83B7F0BC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindJobOnWeb.Service", "FindJobOnWeb.Service\FindJobOnWeb.Service.csproj", "{B841B707-4230-4A44-8C0A-4A2F3A056808}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A19B47F7-2FEF-42D4-A51D-4EEE3156085A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19B47F7-2FEF-42D4-A51D-4EEE3156085A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19B47F7-2FEF-42D4-A51D-4EEE3156085A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19B47F7-2FEF-42D4-A51D-4EEE3156085A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AC1A409-67A4-477A-A01E-BE5075016E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC1A409-67A4-477A-A01E-BE5075016E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC1A409-67A4-477A-A01E-BE5075016E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC1A409-67A4-477A-A01E-BE5075016E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14CBB211-FFF4-469E-8038-90E83B7F0BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14CBB211-FFF4-469E-8038-90E83B7F0BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14CBB211-FFF4-469E-8038-90E83B7F0BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14CBB211-FFF4-469E-8038-90E83B7F0BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B841B707-4230-4A44-8C0A-4A2F3A056808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B841B707-4230-4A44-8C0A-4A2F3A056808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B841B707-4230-4A44-8C0A-4A2F3A056808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B841B707-4230-4A44-8C0A-4A2F3A056808}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A9FADA2-0547-47A3-870C-BA935A21EE1D}
+	EndGlobalSection
+EndGlobal

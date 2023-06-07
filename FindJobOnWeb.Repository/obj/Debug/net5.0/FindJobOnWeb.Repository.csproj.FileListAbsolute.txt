@@ -1,0 +1,15 @@
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\bin\Debug\net5.0\FindJobOnWeb.Repository.deps.json
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\bin\Debug\net5.0\FindJobOnWeb.Repository.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\bin\Debug\net5.0\ref\FindJobOnWeb.Repository.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\bin\Debug\net5.0\FindJobOnWeb.Repository.pdb
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\bin\Debug\net5.0\FindJobOnWeb.Model.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\bin\Debug\net5.0\FindJobOnWeb.Model.pdb
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\FindJobOnWeb.Repository.csproj.AssemblyReference.cache
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\FindJobOnWeb.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\FindJobOnWeb.Repository.AssemblyInfoInputs.cache
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\FindJobOnWeb.Repository.AssemblyInfo.cs
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\FindJobOnWeb.Repository.csproj.CoreCompileInputs.cache
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\FindJobOnWeb.Repository.csproj.CopyComplete
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\FindJobOnWeb.Repository.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\ref\FindJobOnWeb.Repository.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Repository\obj\Debug\net5.0\FindJobOnWeb.Repository.pdb

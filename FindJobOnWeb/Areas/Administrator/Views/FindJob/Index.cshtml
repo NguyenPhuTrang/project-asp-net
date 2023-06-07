@@ -1,0 +1,378 @@
+﻿@model FindJobOnWeb.Model.Entities.JobPost
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_LayoutHome.cshtml";
+}
+
+<main>
+
+    <!-- Hero Area Start-->
+    <div class="slider-area ">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>Tìm kiếm công việc của bạn !</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Area End -->
+    <!-- Job List Area Start -->
+    <div class="job-listing-area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+                <!-- Left content -->
+                <div class="col-xl-3 col-lg-3 col-md-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="small-section-tittle2 mb-45">
+                                <div class="ion">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="20px" height="12px">
+                                        <path fill-rule="evenodd" fill="rgb(27, 207, 107)"
+                                              d="M7.778,12.000 L12.222,12.000 L12.222,10.000 L7.778,10.000 L7.778,12.000 ZM-0.000,-0.000 L-0.000,2.000 L20.000,2.000 L20.000,-0.000 L-0.000,-0.000 ZM3.333,7.000 L16.667,7.000 L16.667,5.000 L3.333,5.000 L3.333,7.000 Z" />
+                                    </svg>
+                                </div>
+                                <h4>Chọn lọc công việc</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Job Category Listing start -->
+                    <div class="job-category-listing mb-50">
+                        <!-- single one -->
+                        <div class="single-listing">
+                            <div class="small-section-tittle2">
+                                <h4>Ngành nghề</h4>
+                            </div>
+                            <!-- Select job items start -->
+                            <div class="select-job-items2">
+                                <select name="select">
+                                    <option value="">Tất cả công việc</option>
+                                    <option value="">Công nghệ thông tin</option>
+                                    <option value="">Y tế</option>
+                                    <option value="">Tài chính</option>
+                                    <option value="">Giáo dục</option>
+                                </select>
+                            </div>
+                            <!--  Select job items End-->
+                            <!-- select-Categories start -->
+                            <div class="select-Categories pt-80 pb-50">
+                                <div class="small-section-tittle2">
+                                    <h4>Loại công việc</h4>
+                                </div>
+                                <label class="container">
+                                    Full Time
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    Part Time
+                                    <input type="checkbox" checked="">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <!-- select-Categories End -->
+                        </div>
+                        <!-- single two -->
+                        <div class="single-listing">
+                            <div class="small-section-tittle2">
+                                <h4>Nơi làm việc</h4>
+                            </div>
+                            <!-- Select job items start -->
+                            <div class="select-job-items2">
+                                <select name="select">
+                                    <option value="">Mọi nơi</option>
+                                    <option value="">Miền bắc</option>
+                                    <option value="">Miền trung </option>
+                                    <option value="">Miền nam</option>
+                                </select>
+                            </div>
+                            <!--  Select job items End-->
+                            <!-- select-Categories start -->
+                            <div class="select-Categories pt-80 pb-50">
+                                <div class="small-section-tittle2">
+                                    <h4>Kinh nghiệm</h4>
+                                </div>
+                                <label class="container">
+                                    1-2 năm
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    2-3 năm
+                                    <input type="checkbox" checked="">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    3-6 năm
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    6- trở lên
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <!-- select-Categories End -->
+                        </div>
+                        <!-- single three -->
+                        <div class="single-listing">
+                            <!-- select-Categories start -->
+                            <div class="select-Categories pb-50">
+                                <div class="small-section-tittle2">
+                                    <h4>Ngày đăng </h4>
+                                </div>
+                                <label class="container">
+                                    Any
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    Today
+                                    <input type="checkbox" checked="">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    Last 2 days
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    Last 3 days
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    Last 5 days
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">
+                                    Last 10 days
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <!-- select-Categories End -->
+                        </div>
+                        <div class="single-listing">
+                            <!-- Range Slider Start -->
+                            <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
+                                <div class="small-section-tittle2">
+                                    <h4>Lọc công việc</h4>
+                                </div>
+                                <div class="widgets_inner">
+                                    <div class="range_item">
+                                        <!-- <div id="slider-range"></div> -->
+                                        <input type="text" class="js-range-slider" value="" />
+                                        <div class="d-flex align-items-center">
+                                            <div class="price_text">
+                                                <p>Giá lương :</p>
+                                            </div>
+                                            <div class="price_value d-flex justify-content-center">
+                                                <input type="text" class="js-input-from" id="amount" readonly />
+                                                <span>to</span>
+                                                <input type="text" class="js-input-to" id="amount" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+                            <!-- Range Slider End -->
+                        </div>
+                    </div>
+                    <!-- Job Category Listing End -->
+                </div>
+                <!-- Right content -->
+                <div class="col-xl-9 col-lg-9 col-md-8">
+                    <!-- Featured_job_start -->
+                    <section class="featured-job-area">
+                        <div class="container">
+                            <!-- Count of Job list Start -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="count-job mb-35">
+                                        <span style="margin-left: 25px"; id="job-count"></span>
+                                        <!-- Select job items start -->
+                                        <div class="select-job-items">
+                                            <span>Sort by</span>
+                                            <select name="select">
+                                                <option value="">None</option>
+                                                <option value="">job list</option>
+                                            </select>
+                                        </div>
+                                        <!--  Select job items End-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Count of Job list End -->
+                            <!-- single-job-content -->
+                            <div class="listDetails listJobPost">
+                            <div class="single-job-items mb-30">
+                            </div>
+                            </div>
+                            <!-- single-job-content -->
+                            <!-- single-job-content -->
+                            <!-- single-job-content -->
+                            <!-- single-job-content -->
+                            <!-- single-job-content -->
+                            <!-- single-job-content -->
+
+                        </div>
+                    </section>
+                    <!-- Featured_job_end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Job List Area End -->
+    <!--Pagination Start  -->
+    <div class="pagination-area pb-115 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <nav aria-label="Page navigation example" style="display: flex; justify-content: center;">
+                        <ul class="pagination" id="pagination">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Pagination End  -->
+</main>
+
+@*<script type="text/javascript">
+    $.ajax({
+        url: "/Jobdetails/GetById",
+        data: { id: JobPostId },
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        success: function (result) {
+            var idCompany = result.companyId;
+
+            $.ajax({
+                url: '/Company/GetById',
+                data: { id: idCompany },
+                type: 'GET',
+                contentType: 'application/json;charset=utf-8',
+                success: function (result) {
+                    var data = '';
+                    
+                    data += '<li>' + "Tên công ty : " + result.companyName + '</li>';
+
+                    
+                    $('.listDetails').html(data);
+
+                 
+                },
+            });
+        },
+    });
+</script>*@
+
+<script type="text/javascript">
+
+    var pageLayout = 1;
+    var pageLength = 7;
+
+    $(document).ready(function () {
+        loadData();
+    });
+
+    function loadData() {
+
+        $.ajax({
+            url: '/Company/List',
+            type: 'GET',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'JSON',
+            success: function (result) {
+                $.each(result, function (key, item) {
+                    var company = item.companyName;
+                    $.ajax({
+                        url: '/FindJob/List',
+                        type: 'GET',
+                        contentType: 'application/json;charset=utf-8',
+                        dataType: 'JSON',
+                        success: function (result) {
+                            
+                            var idCompany = result.companyId;
+                            var pageCount = Math.ceil(result.length / pageLength);
+                            if (pageLayout < 1) {
+                                pageLayout = 1;
+                            } else if (pageLayout > pageCount) {
+                                pageLayout = pageCount;
+                            }
+
+                            var startIndex = (pageLayout - 1) * pageLength;
+                            var endIndex = startIndex + pageLength;
+                            var currentTours = result.slice(startIndex, endIndex);
+
+                            var data = '';
+                            var count = 0;
+          
+                            $.each(currentTours, function (key, item) {
+                                count++;
+                                data += '<div class="single-job-items mb-30">';
+                                data += '<div class="job-items">';
+                                data += '<div class="job-tittle job-tittle2">';
+                                data += '<a href="/Administrator/Jobdetails/Index/' + item.id + '"><h4>' + item.jobTypeName + '</h4></a>';
+                                data += '<ul>';
+                                data += '<li>' + "Tên công ty : " +company+ '</li>';
+                                data += '<li><i class="fas fa-map-marker-alt"></i>'+"Địa điểm : "+ item.location + '</li>';
+                                data += '<li>'+"Lương tháng : "+ item.salary + " VND" + '</li>';
+                                data += '</ul>';
+                                data += '</div>';
+                                data += '</div>';
+                                data += '<div class="items-link items-link2 f-right">';
+                                data += '<a href="job_details.html">' + item.status + '</a>';
+                                const datetime = new Date(item.createdDate);
+                                const year = datetime.getFullYear();
+                                const month = datetime.getMonth() + 1;
+                                const day = datetime.getDate();
+                                const date = year + '-' + month + '-' + day;
+                                data += '<span>'+"Ngày đăng : " + date + '</span>';
+                                data += '</div>';
+                                data += '</div>';
+                               
+                            });
+                            $('#job-count').text(count + ' Kết quả tìm thấy !');
+                            $('.listJobPost').html(data);
+                        
+                            renderPagination(pageCount);
+                        },
+                        error: function (error) {
+                            console.log("Error: " + error.responseText);
+                        }
+                    });
+                });
+            },
+            error: function (error) {
+                console.log("Error: " + error.responseText);
+            }
+        });
+    }
+
+    function renderPagination(pageCount) {
+        var pagination = $('#pagination');
+        pagination.empty();
+        for (var i = 1; i <= pageCount; i++) {
+            var emlement = $('<li class="page-item page_item"><span class="page-link" href="#">' + i + '</span></li>');
+            pagination.append(emlement);
+        }
+    }
+
+    $('#pagination').on('click', 'li', function () {
+        pageLayout = parseInt($(this).text());
+        loadData();
+    });
+
+
+</script>

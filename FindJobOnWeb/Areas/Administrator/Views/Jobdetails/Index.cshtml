@@ -1,0 +1,179 @@
+﻿@model FindJobOnWeb.Model.Entities.JobPost
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_LayoutHome.cshtml";
+}
+
+<main>
+    <!-- Hero Area Start-->
+    <div class="slider-area ">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>VietnamWork</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Area End -->
+    <!-- job post company Start -->
+    <div class="job-post-company pt-120 pb-120">
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Left Content -->
+                <div class="col-xl-7 col-lg-8">
+                    <!-- job single -->
+                    <div class="single-job-items mb-50 listDetails">
+                    </div>
+
+                    <!-- job single End -->
+
+                    <div class="job-post-details">
+                        <div class="post-details2  mb-50">
+                            <!-- Small Section Tittle -->
+                            <div class="small-section-tittle">
+                                <h4>Kiến thức, kỹ năng và khả năng cần thiết</h4>
+                            </div>
+                            <ul>
+                                <li>Phát triển phần mềm hệ thống</li>
+                                <li>Ứng dụng di động trong iOS/Android/Tizen hoặc nền tảng khác</li>
+                                <li>Nghiên cứu và viết mã, thư viện, API và khung</li>
+                                <li>Kiến thức vững chắc về vòng đời phát triển phần mềm</li>
+                                <li>Kỹ năng giải quyết vấn đề và gỡ lỗi mạnh mẽ</li>
+                            </ul>
+                        </div>
+                        <div class="post-details2  mb-50">
+                            <!-- Small Section Tittle -->
+                            <div class="small-section-tittle">
+                                <h4>Học vấn + Kinh nghiệm</h4>
+                            </div>
+                            <ul>
+                                <li>3 năm kinh nghiệm thiết kế chuyên nghiệp trở lên</li>
+                                <li>Trải nghiệm email phản hồi trực tiếp</li>
+                                <li>Kinh nghiệm thiết kế website thương mại điện tử</li>
+                                <li>Quen thuộc với các ứng dụng di động và web được ưu tiên</li>
+                                <li>Kinh nghiệm sử dụng Invision một điểm cộng</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Right Content -->
+                <div class="col-xl-4 col-lg-4 ">
+                    <div class="post-details3  mb-50 listCompany ">
+                       
+                    </div>
+                    <div class="post-details4  mb-50 Company">
+                        <!-- Small Section Tittle -->
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- job post company End -->
+
+</main>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        loadData();
+        console.log(JobPostId);
+    });
+    var currentUrl = window.location.href;
+    var JobPostId = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+    function loadData() {
+        $.ajax({
+            url: "/Jobdetails/GetById",
+            data: { id: JobPostId },
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            success: function (result) {
+                var jobTypeName = result.jobTypeName;
+                var location = result.location;
+                var salary = result.salary;
+                var description = result.description;
+                var experience = result.experience;
+                var skill = result.skill;
+                var education = result.education;
+                var idCompany = result.companyId;
+                var status = result.status;
+                const datetime = new Date(result.createdDate);
+                const year = datetime.getFullYear();
+                const month = datetime.getMonth() + 1;
+                const day = datetime.getDate();
+                const date = year + '-' + month + '-' + day;
+
+                $.ajax({
+                    url: '/Company/GetById',
+                    data: { id: idCompany },
+                    type: 'GET',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (result) {
+                        var data = '';
+                        data += '<div class="single-job-items mb-50">';
+                        data += '<div class="job-items">';
+                        data += '<div style = "width: 100%"; class="job-tittle">';
+                        data += '<a href="#">';
+                        data += '<h3 style = "margin-bottom: 25px;">' + jobTypeName + '</h3>';
+                        data += '</a>';
+                        data += '<ul>';
+                        data += '<li>' + "Tên công ty : " + result.companyName + '</li>';
+                        data += '<li><i class="fas fa-map-marker-alt"></i>' + "Địa điểm : " + location + '</li>';
+                        data += '<li>' + "Lương : " + salary + " VND" + '</li>';
+                        data += '</ul>';
+                        data += '</div>';
+                        data += '<br>';
+                        data += '<div style="margin-top:25px;" class="post-details1 mb-50">';
+                        data += '<div class="small-section-tittle">';
+                        data += '<h3>Miêu tả công việc</h3>';
+                        data += '</div>';
+                        data += '<p>' + description + '</p>';
+                        data += '<h4>Các kỹ năng cần thiết</h4>';
+                        data += '<p>' + skill + '</p>';
+                        data += '<h4>Bằng cấp hoặc chứng chỉ</h4>';
+                        data += '<p>' + education + '</p>';
+                        data += '<h4>Yều cầu số năm kinh nghiệm</h4>';
+                        data += '<p>' + experience + '</p>';
+                        data += '</div>';
+                        data += '</div>';
+                        $('.listDetails').html(data);
+
+                        var datas = '';
+                        datas += '<div class="small-section-tittle">';
+                        datas += '<h4>Tổng quan về công việc</h4>';
+                        datas += '</div>';
+                        datas += '<ul>';
+                        datas += '<li>' + "Ngày đăng : " + date + '</li>';
+                        datas += '<li>' + "Địa điểm : " + location + '</li>';
+                        datas += '<li>' + "Trạng thái : " + status + '</li>';
+                        datas += '<li>' + "Lương tháng : " + salary + " VND" + '</li>';
+                        datas += '</ul>';
+                        datas += '<div style="text-align:center" class="apply-btn2">';
+                        datas += '<a href="#" class="btn">Liên hệ ngay bây giờ</a>';
+                        datas += '</div>';
+                        datas += '</div>';
+                        $('.listCompany').html(datas);
+
+                        var dataCompany = '';
+                        dataCompany += '<h4>Thông tin của công ty</h4>';
+                        dataCompany += '</div>';
+                        dataCompany += '<span>' + "Công ty : " + result.companyName + '</span>';
+                        dataCompany += '<p>' + result.description +'</p>';
+                        dataCompany += '<ul>';
+                        dataCompany += ' <li>' + "Lĩnh vực : " + result.businessStreamName + '</li>';
+                        dataCompany += ' <li>'+"Email : " +result.email+'</li>';
+                        dataCompany += '</ul>';
+                        $('.Company').html(dataCompany);
+                    },
+                });
+            },
+        });
+    }
+    
+</script>

@@ -1,0 +1,99 @@
+﻿@model FindJobOnWeb.Model.Entities.User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_LayoutLogin.cshtml";
+}
+<div class="wrap-login100">
+    <form class="login100-form validate-form" id="formRegister">
+        <span class="login100-form-title p-b-43">
+            Đăng ký tài khoản mới
+        </span>
+        <div class="wrap-input100 validate-input" data-validate="Email hợp lệ là bắt buộc: ex@abc.xyz">
+            <input class="input100" type="text" asp-for="Email">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Email</span>
+        </div>
+
+
+        <div class="wrap-input100 validate-input" data-validate="Mật khẩu là bắt buộc">
+            <input class="input100 " type="password" asp-for="Password">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Mật khẩu</span>
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Số điện thoại là bắt buộc">
+            <input class="input100" asp-for="PhoneNumber">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Số điện thoại</span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Địa chỉ là bắt buộc">
+            <input class="input100" asp-for="Address">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Địa chỉ</span>
+        </div>
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn" type="submit">
+                Đăng ký
+            </button>
+        </div>
+        <div class="text-center p-t-46 p-b-20">
+            <a href="/Administrator/RegisterCp/Index" class="txt1">
+                Đăng ký tài Nhà tuyển dụng !
+            </a>
+        </div>
+    </form>
+
+    <div class="login100-more backgroudLogin">
+        <img src="~/assetsLogin/images/bg-01.jpg" style="width : 100%;" />
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    document.getElementById("formRegister").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: '/Register/GetMaxUserId',
+            type: 'GET',
+            success: function (getUser) {
+                var user = {
+                    Id: getUser.id + 1,
+                    Email: $('#Email').val(),
+                    Password: $('#Password').val(),
+                    PhoneNumber: $('#PhoneNumber').val(),
+                    Address: $('#Address').val()
+                };
+
+                $.ajax({
+                    url: "/Register/Add",
+                    data: JSON.stringify(user),
+                    type: "POST",
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'JSON',
+                    success: function (result) {
+
+                        if ($('#Email').val() === '' || $('#Password').val() === '' || $('#PhoneNumber').val() === '' || $('#Address').val() === '') {
+                            alert("Thông tin dữ liệu không được bỏ trống !");
+                        }
+                        else {
+                            alert("Đăng ký tài khoản thành công !");
+                            window.location.href = "/Administrator/Login/Index";
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error.responseText);
+                    }
+
+                });
+            },
+            error: function (error) {
+                console.log('Error:', error);
+            }
+        });
+
+    });
+
+
+</script>

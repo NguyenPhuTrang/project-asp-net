@@ -1,0 +1,152 @@
+﻿@model FindJobOnWeb.Model.Entities.Feedback
+@{
+    ViewData["Title"] = "FeedBack";
+    Layout = "~/Areas/Administrator/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Phản hồi từ người dùng !</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">FeedBack</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+            <div class="card">
+                <div style="text-align:center;" class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Mã số</th>
+                                <th>Họ & Tên</th>
+                                <th>Email</th>
+                                <th>Chủ đề</th>
+                                <th>Nội dung</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <nav aria-label="Page navigation example" style="display: flex; justify-content: center;">
+                <ul class="pagination" id="pagination">
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+</main>
+<script type="text/javascript">
+
+
+    var pageLayout = 1;
+    var pageLength = 10;
+
+    $(document).ready(function () {
+        loadData();
+    });
+
+    function loadData() {
+        $.ajax({
+            url: '/Feedback/List',
+            type: 'GET',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'JSON',
+            success: function (result) {
+
+                var pageCount = Math.ceil(result.length / pageLength);
+                if (pageLayout < 1) {
+                    pageLayout = 1;
+                } else if (pageLayout > pageCount) {
+                    pageLayout = pageCount;
+                }
+                var startIndex = (pageLayout - 1) * pageLength;
+                var endIndex = startIndex + pageLength;
+                var currentTours = result.slice(startIndex, endIndex);
+
+                var data = '';
+                $.each(currentTours, function (key, item) {
+                    data += '<tr>';
+                    data += '<td>' + item.id + '</p></td>';
+                    data += '<td>' + item.fullname + '</p></td>';
+                    data += '<td>' + item.email + '</p></td>';
+                    data += '<td>' + item.subject + '</p></td>';
+                    data += '<td>' + item.content + '</p></td>';
+                    data += '<td><a href="#" onclick = "return getById(' + item.id + ')">Phản hồi</a> | <a href="#" onclick = "return deleteAccount(' + item.id + ')">Xóa</a></td>';
+                    data += '</tr>';
+                });
+                $('.tbody').html(data);
+
+                renderPagination(pageCount);
+
+            },
+            error: function (error) {
+                console.log("Error: " + error.responseText);
+            }
+        });
+    }
+
+    function getById(id) {
+        $.ajax({
+            url: "/Feedback/GetById",
+            data: { id: id },
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            success: function (result) {
+                $('#Id').val(result.id);
+                $('#Fullname').val(result.fullname);
+                $('#Email').val(result.email);
+                $('#Subject').val(result.subject);
+                $('#Content').val(result.content);
+
+                //hiển thị modal
+
+            }
+        });
+    }
+
+
+    function deleteAccount(id) {
+        var ans = confirm("Bạn có chắc chắn xóa không?")
+        if (ans) {
+            $.ajax({
+                url: "/Register/Delete",
+                data: { id: id },
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "JSON",
+                success: function (result) {
+                    loadData();
+                },
+                error: function (e) {
+                    alert(e.responseText);
+                }
+            });
+        }
+    }
+
+
+    function renderPagination(pageCount) {
+        var pagination = $('#pagination');
+        pagination.empty();
+        for (var i = 1; i <= pageCount; i++) {
+            var emlement = $('<li class="page-item page_item"><span class="page-link" href="#">' + i + '</span></li>');
+            pagination.append(emlement);
+        }
+    }
+
+    $('#pagination').on('click', 'li', function () {
+        pageLayout = parseInt($(this).text());
+        loadData();
+    });
+
+</script>
+

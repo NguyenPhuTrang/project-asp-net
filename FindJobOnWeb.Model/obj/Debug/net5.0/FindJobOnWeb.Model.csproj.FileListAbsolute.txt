@@ -1,0 +1,15 @@
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\bin\Debug\net5.0\FindJobOnWeb.Model.deps.json
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\bin\Debug\net5.0\FindJobOnWeb.Model.runtimeconfig.json
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\bin\Debug\net5.0\FindJobOnWeb.Model.runtimeconfig.dev.json
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\bin\Debug\net5.0\FindJobOnWeb.Model.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\bin\Debug\net5.0\ref\FindJobOnWeb.Model.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\bin\Debug\net5.0\FindJobOnWeb.Model.pdb
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\FindJobOnWeb.Model.csproj.AssemblyReference.cache
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\FindJobOnWeb.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\FindJobOnWeb.Model.AssemblyInfoInputs.cache
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\FindJobOnWeb.Model.AssemblyInfo.cs
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\FindJobOnWeb.Model.csproj.CoreCompileInputs.cache
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\FindJobOnWeb.Model.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\ref\FindJobOnWeb.Model.dll
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\FindJobOnWeb.Model.pdb
+D:\Workspace\Donet nang cao\BTL\FindJobOnWeb.Model\obj\Debug\net5.0\FindJobOnWeb.Model.genruntimeconfig.cache

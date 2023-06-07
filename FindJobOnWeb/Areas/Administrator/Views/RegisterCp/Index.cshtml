@@ -1,0 +1,102 @@
+﻿@model FindJobOnWeb.Model.Entities.Company
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_LayoutRegisterCp.cshtml";
+}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Đăng ký tài khoản nhà tuyển dụng</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-5">
+                <div class="wrap">
+                    <img src="~/assestCP/images/bg-1.jpg" alt="văn_bản_mô_tả"> 
+                        <div class="d-flex">
+                            <div class="w-100">
+                                <h3 class="mb-4">Register !</h3>
+                            </div>
+                            <div class="w-100">
+                                <p class="social-media d-flex justify-content-end">
+                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+                                </p>
+                            </div>
+                        </div>
+                        <form action="#" class="signin-form" id="formRegisterCp">
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" required asp-for="Email">
+                                <label class="form-control-placeholder">Email</label>
+                            </div>
+                            <div class="form-group mt-4">
+                                <input type="password" class="form-control" required asp-for="Password">
+                                <label class="form-control-placeholder">Mật khẩu</label>
+                            </div>
+                            <div class="form-group mt-4">
+                                <input type="text" class="form-control" required asp-for="CompanyName">
+                                <label class="form-control-placeholder">Tên công ty</label>
+                            </div>
+                            <div class="form-group mt-4">
+                                <input type="text" class="form-control" required asp-for="BusinessStreamName">
+                                <label class="form-control-placeholder">Lĩnh vực</label>
+                            </div>
+                            <div class="form-group mt-4">
+                                <input type="text" class="form-control" required asp-for="Description">
+                                <label class="form-control-placeholder">Miêu tả</label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary rounded submit px-3">Đăng ký</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</section>
+
+<script type="text/javascript">
+
+    document.getElementById("formRegisterCp").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: '/RegisterCp/GetMaxCompanyId',
+            type: 'GET',
+            success: function (getCompany) {
+                var company = {
+                    Id: getCompany.id + 1,
+                    Email: $('#Email').val(),
+                    Password: $('#Password').val(),
+                    CompanyName: $('#CompanyName').val(),
+                    BusinessStreamName: $('#BusinessStreamName').val(),
+                    Description: $('#Description').val()
+                };
+                console.log(company);
+                $.ajax({
+                    url: "/RegisterCp/Add",
+                    data: JSON.stringify(company),
+                    type: "POST",
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'JSON',
+                    success: function (result) {
+                        alert("Đăng ký tài khoản thành công !");
+                        window.location.href = "/Administrator/Login/Index";
+                    },
+                    error: function (error) {
+                        console.log(error.responseText);
+                    }
+                });
+            },
+            error: function (error) {
+                console.log('Error:', error);
+            }
+        });
+
+    });
+
+
+</script>
+

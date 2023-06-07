@@ -1,0 +1,395 @@
+﻿@model FindJobOnWeb.Model.Entities.JobPost
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Công ty & nhà tuyển dụng</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Quản lý bài đăng</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary my-3" id="hideBtnUpdate" data-bs-toggle="modal" data-bs-target="#jobPostModal">Thêm mới</button>
+                    <table class="table">
+                        <thead>
+                            <tr style="font-size:15px;">
+                                <th>Tên công việc</th>
+                                <th>Ngày tạo</th>
+                                <th>Địa điểm</th>
+                                <th>Trạng thái</th>
+                                <th>Lương</th>
+                                <th>Kỹ năng</th>
+                                <th>Bằng cấp</th>
+                                <th>Kinh nghiệm</th>
+                                <th>Chức năng</th>
+                                <th>Miêu tả</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <nav aria-label="Page navigation example" style="display: flex; justify-content: center;">
+                <ul class="pagination" id="pagination">
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+
+<form asp-action="Search" method="get">
+    <input type="text" name="searchTerm" />
+    <button type="submit">Tìm kiếm</button>
+</form>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.Id</td>
+            <td>@product.Name</td>
+            <td>@product.Price</td>
+        </tr>
+    }
+</table>
+
+
+<div class="modal close_modal" id="jobPostModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm bài đăng</h5>
+                <button type="button" class="btn-close" id="reset_close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Mã bài đăng</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Id" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Mã công ty</label>
+                        <div class="col-sm-10">
+                            <input asp-for="CompanyId" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Mã tài khoản</label>
+                        <div class="col-sm-10">
+                            <input asp-for="UserId" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Mã kỹ năng</label>
+                        <div class="col-sm-10">
+                            <input asp-for="SkillId" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Tên công việc</label>
+                        <div class="col-sm-10">
+                            <input asp-for="JobTypeName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Ngày tạo</label>
+                        <div class="col-sm-10">
+                            <input asp-for="CreatedDate" type="date" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Địa điểm</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Location" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Trạng thái</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Status" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Lương</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Salary" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Kỹ năng</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Skill" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Bằng cấp</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Education" class="form-control">
+                        </div>
+
+                    </div> <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Kinh nghiệm</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Experience" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Miêu tả</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Description" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnAdd" class="btn btn-primary" onclick="return add()">Lưu</button>
+                <button type="button" id="btnUpdate" class="btn btn-success" onclick="return update()">Cập nhật</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var pageLayout = 1;
+    var pageLength = 10;
+
+    $(document).ready(function () {
+        loadData();
+    });
+
+    function loadData() {
+        $.ajax({
+            url: '/JobPost/List',
+            type: 'GET',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'JSON',
+            success: function (result) {
+
+                var pageCount = Math.ceil(result.length / pageLength);
+                if (pageLayout < 1) {
+                    pageLayout = 1;
+                } else if (pageLayout > pageCount) {
+                    pageLayout = pageCount;
+                }
+                var startIndex = (pageLayout - 1) * pageLength;
+                var endIndex = startIndex + pageLength;
+                var currentTours = result.slice(startIndex, endIndex);
+
+                var data = '';
+                $.each(currentTours, function (key, item) {
+                    data += '<tr>';
+                    data += '<td>' + item.jobTypeName + '</p></td>';
+                    const datetime = new Date(item.createdDate);
+                    const year = datetime.getFullYear();
+                    const month = datetime.getMonth() + 1;
+                    const day = datetime.getDate();
+                    const date = year + '-' + month + '-' + day;
+                    data += '<td>' + date + '</p></td>';
+                    data += '<td>' + item.location + '</p></td>';
+                    data += '<td>' + item.status + '</p></td>';
+                    data += '<td>' + item.salary + '</p></td>';
+                    data += '<td>' + item.skill + '</p></td>';
+                    data += '<td>' + item.education + '</p></td>';
+                    data += '<td>' + item.experience + '</p></td>';
+                    data += '<td style="max-width:150px; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;  text-overflow: ellipsis; word-wrap: break-word; ">' + item.description + '</p></td>';
+                    data += '<td><a href="#" onclick = "return getById(' + item.id + ')">Sửa</a> | <a href="#" onclick = "return deletePost(' + item.id + ')">Xóa</a></td>';
+                    data += '</tr>';
+
+                });
+                $('.tbody').html(data);
+                renderPagination(pageCount);
+            },
+            error: function (error) {
+                console.log("Error: " + error.responseText);
+            }
+        });
+    }
+    function add() {
+        var jobPost = {
+            Id: $('#Id').val(),
+            CompanyId: $('#CompanyId').val(),
+            UserId: $('#UserId').val(),
+            SkillId: $('#SkillId').val(),
+            JobTypeName: $('#JobTypeName').val(),
+            CreatedDate: $('#CreatedDate').val(),
+            Location: $('#Location').val(),
+            Status: $('#Status').val(),
+            Salary: $('#Salary').val(),
+            Skill: $('#Skill').val(),
+            Education: $('#Education').val(),
+            Experience: $('#Experience').val(),
+            Description: $('#Description').val(),
+        };
+
+        $.ajax({
+            url: "/JobPost/Add",
+            data: JSON.stringify(jobPost),
+            type: "POST",
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'JSON',
+            success: function (result) {
+                loadData();
+                $('.close_modal').modal('hide');
+            },
+            error: function (error) {
+                console.log(error.responseText);
+            }
+        });
+    }
+
+    function getById(id) {
+        $.ajax({
+            url: "/JobPost/GetById",
+            data: { id: id },
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            success: function (result) {
+                $('#Id').val(result.id);
+                $('#CompanyId').val(result.companyId);
+                $('#UserId').val(result.userId);
+                $('#SkillId').val(result.skillId);
+                $('#JobTypeName').val(result.jobTypeName);
+                $('#CreatedDate').val(result.createdDate);
+                $('#Location').val(result.location);
+                $('#Status').val(result.status);
+                $('#Description').val(result.description);
+                $('#Salary').val(result.salary);
+                $('#Skill').val(result.skill);
+                $('#Education').val(result.education);
+                $('#Experience').val(result.experience);
+
+                //hiển thị modal
+                $('#jobPostModal').modal('show');
+                $('#btnAdd').addClass('d-none');
+            }
+        });
+    }
+
+    function update() {
+        //Lấy các giá trị trong textbox
+        var jobPost = {
+            Id: $('#Id').val(),
+            CompanyId: $('#CompanyId').val(),
+            UserId: $('#UserId').val(),
+            SkillId: $('#SkillId').val(),
+            JobTypeName: $('#JobTypeName').val(),
+            CreatedDate: $('#CreatedDate').val(),
+            Location: $('#Location').val(),
+            Status: $('#Status').val(),
+            Description: $('#Description').val(),
+            Salary: $('#Salary').val(),
+            Skill: $('#Skill').val(),
+            Education: $('#Education').val(),
+            Experience: $('#Experience').val()
+        };
+
+        $.ajax({
+            url: "/JobPost/Update",
+            data: JSON.stringify(jobPost),
+            type: "POST",
+            dataType: "JSON",
+            contentType: "application/json;charset=utf-8",
+            success: function (result) {
+                loadData();
+                //Ẩn modal
+                $('#jobPostModal').modal('hide');
+                //reset textbox
+                $('#Id').val("");
+                $('#CompanyId').val("");
+                $('#UserId').val("");
+                $('#SkillId').val("");
+                $('#JobTypeName').val("");
+                $('#CreatedDate').val("");
+                $('#Location').val("");
+                $('#Status').val("");
+                $('#Description').val("");
+                $('#Salary').val("");
+                $('#Skill').val("");
+                $('#Education').val("");
+                $('#Experience').val("");
+            }
+        });
+    }
+
+    function deletePost(id) {
+        var ans = confirm("Bạn có chắc chắn xóa không?")
+        if (ans) {
+            $.ajax({
+                url: "/JobPost/Delete",
+                data: { id: id },
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "JSON",
+                success: function (result) {
+                    loadData();
+                },
+                error: function (e) {
+                    alert(e.responseText);
+                }
+            });
+        }
+    }
+
+    function renderPagination(pageCount) {
+        var pagination = $('#pagination');
+        pagination.empty();
+        for (var i = 1; i <= pageCount; i++) {
+            var emlement = $('<li class="page-item page_item"><span class="page-link" href="#">' + i + '</span></li>');
+            pagination.append(emlement);
+        }
+    }
+
+    $('#pagination').on('click', 'li', function () {
+        pageLayout = parseInt($(this).text());
+        loadData();
+    });
+
+    const resetform = document.getElementById("reset_close");
+    const btnAdd = document.getElementById("btnAdd");
+    function showBtn() {
+        btnAdd.classList.remove('d-none');
+        btnUpdate.classList.remove('d-none');
+    }
+    resetform.addEventListener('click', showBtn);
+
+    const hideBtnUpdate = document.getElementById("hideBtnUpdate");
+    const btnUpdate = document.getElementById("btnUpdate");
+    function hideBtn() {
+        btnUpdate.classList.add('d-none');
+    }
+    hideBtnUpdate.addEventListener('click', hideBtn);
+
+    const closeModal = document.querySelector('close_modal');
+    closeModal.addEventListener('click', showBtn);
+
+</script>
